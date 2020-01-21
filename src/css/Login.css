@@ -54,3 +54,12 @@
 	color: white;
 	border: 2px none solid;
 }
+
+.form p {
+	margin: 2rem 0;
+
+	cursor: pointer;
+	font-size: 12px;
+	font-style: italic;
+	text-decoration: underline;
+}

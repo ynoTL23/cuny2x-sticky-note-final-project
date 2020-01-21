@@ -4,7 +4,7 @@ import { Switch, Route, BrowserRouter as Router, Link } from 'react-router-dom'
 
 import App from './App'
 import { Register } from './Register'
-// import Login from './Login'
+import { Login } from './Login'
 // import PageNotFound from './PageNotFound'
 
 import './css/index.css'
@@ -16,26 +16,17 @@ const landing = (
 			<div className='dropdown'>
 				<div className='dropbtn'>Menu ▼</div>
 				<div className='dropdown-content'>
-					<Link
-						to='/login'
-						onClick={() => console.log('login working')}>
-						Login
-					</Link>
-					<Link
-						onClick={Register}>
-						Register
-					</Link>
+					<Link onClick={Login}>Login</Link>
+					<Link onClick={Register}>Register</Link>
 				</div>
 			</div>
 		</div>
 		<Switch>
-        {/*
-            <Route exact path='/register' component={Register}/>
-            <Route exact path='/login' component={Login}/>
+			{/*
             <Route component={PageNotFound}/>
-        */}
-        </Switch>
-        <App />
+            */}
+		</Switch>
+		<App />
 	</Router>
 )
 
