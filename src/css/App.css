@@ -8,3 +8,14 @@
     width: 100vw;
     height: 100vh;
 }
+
+.canvas p {
+    padding: 0 5px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    background-color: rgba(0, 0, 255, 0.1);
+
+    font-size: 12px;
+}
