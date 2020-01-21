@@ -1,0 +1,55 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.topbar {
+	padding: 0 2px;
+	position: absolute;
+	cursor: pointer;
+	background-color: rgba(0, 0, 255, 0.1);
+	color: #888;
+	border: none;
+}
+
+.dropdown {
+	padding: 0 2px;
+	position: relative;
+    display: inline-block;
+    font-size: 12px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+	display: none;
+	position: absolute;
+	width: max-content;
+	font-size: 12px;
+	background-color: rgba(0, 0, 255, 0.1);
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+	padding: 0 2px;
+	color: #555;
+	text-decoration: none;
+	display: block;
+	border: 0.5px #888 solid;
+}
+
+/* Change BG color of dropdown links on hover */
+.dropdown-content a:hover {
+	background-color: #fff;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+/* Change the color of dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+	color: #555;
+}
