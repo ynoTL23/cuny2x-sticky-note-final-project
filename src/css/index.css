@@ -8,6 +8,7 @@
 .topbar {
 	padding: 0 2px;
 	position: absolute;
+	right: 0;
 	cursor: pointer;
 	background-color: rgba(0, 0, 255, 0.1);
 	color: #888;
