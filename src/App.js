@@ -1,10 +1,12 @@
 import React from 'react';
-import './App.css';
+import './css/App.css';
 
 function App() {
   return (
-    <h1>My Website</h1>
-  );
+		<div
+			className='canvas'
+			onClick={() => console.log('canvas clicked')}></div>
+  )
 }
 
 export default App;
