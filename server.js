@@ -8,6 +8,12 @@ app.use(bodyParser.json());
 
 app.use("/notes", require("./backend/routes/index"));
 
+app.get("*", (_, res) =>
+  res.status(400).json({
+    message: "Invalid API Call"
+  })
+);
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, res =>
