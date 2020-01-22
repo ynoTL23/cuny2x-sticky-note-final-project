@@ -5,11 +5,7 @@ import { Switch, Route, BrowserRouter as Router, Link } from 'react-router-dom'
 import MouseTracker from './MouseTracker'
 import { Register } from './Register'
 import { Login } from './Login'
-<<<<<<< HEAD
 // import PageNotFound from './PageNotFound'
-=======
-import PageNotFound from './PageNotFound'
->>>>>>> 72c97df...  merging branches up-to-date
 
 import './css/index.css'
 import * as serviceWorker from './serviceWorker'
@@ -26,9 +22,9 @@ const landing = (
 			</div>
 		</div>
 		<Switch>
-			{/*
-            <Route component={PageNotFound}/>
-            */}
+			
+            {/* <Route component={PageNotFound}/> */}
+           
 		</Switch>
 		<MouseTracker />
 	</Router>

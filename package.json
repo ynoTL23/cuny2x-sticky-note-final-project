@@ -10,25 +10,6 @@
     "type": "git",
     "url": "git+https://github.com/ynoTL23/cuny2x-sticky-note-final-project.git"
   },
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "react-router-dom": "^5.1.2"
-=======
-=======
->>>>>>> 72c97df...  merging branches up-to-date
   "author": "Daniel Encarnacion & Tony Lu",
   "license": "MIT",
   "bugs": {
@@ -40,26 +21,7 @@
     "express": "^4.17.1",
     "pg": "^7.17.1",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^5.21.3"
-<<<<<<< HEAD
->>>>>>> 1582493... initial server setup
-=======
-=======
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
+    "sequelize": "^5.21.3",
     "react-router-dom": "^5.1.2"
->>>>>>> master
->>>>>>> 72c97df...  merging branches up-to-date
   }
 }
