@@ -1,5 +1,6 @@
 const Sequelize = require("sequelize");
 const db = require("../config/database.js");
+const http = require("http");
 
 const savedNotes = db.define(
   "stickynotes",
@@ -23,7 +24,9 @@ const savedNotes = db.define(
 );
 
 savedNotes.sync().then(function() {
-  console.log("The Notes Table Exists");
+  http.createServer(app).listen(app.get("port"), function() {
+    console.log("The Notes Table Exists");
+  });
 });
 
 module.exports = savedNotes;
