@@ -1,5 +1,6 @@
 import React from 'react';
 import './css/App.css';
+import StickyNote from './StickyNote';
 
 
 export default class App extends React.Component {
@@ -7,19 +8,23 @@ export default class App extends React.Component {
 		super(props)
 
 		this.trackMouseMove = this.trackMouseMove.bind(this)
-		this.state = { x: 0, y: 0 }
+		this.state = { mouseX: 0, mouseY: 0, notes: [] }
 	}
 
 	trackMouseMove(e) {
-		this.setState({ x: e.screenX, y: e.screenY })
+		this.setState({ mouseX: e.screenX, mouseY: e.screenY })
+	}
+
+	createNote = () => {
+		this.state.notes.push(<StickyNote posX={this.state.mouseX} posY={this.state.mouseY} />)
+		// console.log(this.state.notes)
 	}
 
 	render() {
-		const { x, y } = this.state
-
 		return (
-			<div className='canvas' onMouseMove={this.trackMouseMove.bind(this)}>
-				<p>X: { x } Y: { y }</p>
+			<div className='canvas' onMouseMove={this.trackMouseMove} onMouseDown={this.createNote}>
+				{this.state.notes.map((note) => note)}
+				<p>X: { this.state.mouseX } Y: { this.state.mouseY }</p>
 			</div>
 		)
 	}
