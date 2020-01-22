@@ -5,10 +5,8 @@
 }
 
 .sticky-note {
-	float: left;
+	position: absolute;
 	padding: 1em;
-	width: 300px;
-	min-height: 300px;
 	margin: 0 30px 30px 0;
 	background-color: #fffd75;
 	box-shadow: 5px 5px 10px -2px rgba(33, 33, 33, 0.3);
@@ -16,18 +14,26 @@
 }
 
 .sticky-note:hover {
-	cursor: move;
+	cursor: grab;
+}
+
+.sticky-note:active {
+	cursor: grabbing;
 }
 
 textarea {
 	background-color: transparent;
 	border: none;
-	resize: vertical;
+	resize: both;
 	font-family: 'Gloria Hallelujah', cursive;
 	width: 100%;
-	height: 250px;
+	min-width: 250px;
+	min-height: 80px;
 	padding: 5px;
 	font-size: 12pt;
+
+	scrollbar-color: #96998f transparent;
+	scrollbar-width: thin;
 }
 
 textarea:focus {
