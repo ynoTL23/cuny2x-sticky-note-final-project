@@ -22,9 +22,7 @@ const landing = (
 			</div>
 		</div>
 		<Switch>
-
             {/* <Route component={PageNotFound}/> */}
-
 		</Switch>
 		<App />
 	</Router>
