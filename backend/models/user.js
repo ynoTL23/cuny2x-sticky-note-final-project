@@ -18,7 +18,7 @@ const account = db.define(
       type: Sequelize.TEXT
     }
   },
-  { timestamps: false }
+  { timestamps: true }
 );
 
 account.hasOne(notes, { foreignKey: "username" });
