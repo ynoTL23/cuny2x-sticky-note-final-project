@@ -12,7 +12,11 @@ export default class StickyNote extends React.Component {
 			author: 'Anonymous',
 			bgColor: props.bgColor,
 			content: props.content,
+			voteCount: props.voteCount,
+			voted: false
 		}
+		this.deleteNote = this.deleteNote.bind(this)
+		this.voteHandler = this.voteHandler.bind(this)
 	}
 
 	// change the sticky note color
@@ -20,6 +24,25 @@ export default class StickyNote extends React.Component {
 		const colorPickerCircle = e.target.closest('.color-picker-container') // track the color picker circle
 		this.setState( {bgColor: color} ) // change the bg color of sticky note
 		colorPickerCircle.style.backgroundColor = color // change color picker circle indicator
+	}
+
+	// delete the note
+	deleteNote(e) {
+		e.target.closest('.sticky-note').style.display = 'none'
+	}
+
+	// note was voted on
+	voteHandler(e) {
+		const status = this.state.voted
+		if(status) {
+			this.setState({voteCount: this.state.voteCount - 1})
+			this.setState({voted: false})
+			e.target.style.color = '#000'
+		} else {
+			this.setState({voteCount: this.state.voteCount + 1})
+			this.setState({voted: true})
+			e.target.style.color = 'red'
+		}
 	}
 
 	render() {
@@ -36,8 +59,8 @@ export default class StickyNote extends React.Component {
 							defaultValue={this.state.content}></textarea>
 					</div>
 					<div className="color-picker-container" style={{backgroundColor: this.state.bgColor}}>
-						<div className="color-palette" >
-							<span className='color-option' onMouseDown={(e) => this.changeColor(e, '#ff5555')}></span>
+						<div className="color-palette">
+							<span className='color-option' onMouseDown={(e) => this.changeColor(e, '#ffa0a0')}></span>
 							<span className='color-option' onMouseDown={(e) => this.changeColor(e, '#bd93f9')}></span>
 							<span className='color-option' onMouseDown={(e) => this.changeColor(e, '#f1fa8c')}></span>
 							<span className='color-option' onMouseDown={(e) => this.changeColor(e, '#50fa7b')}></span>
@@ -45,7 +68,8 @@ export default class StickyNote extends React.Component {
 							<span className='color-option' onMouseDown={(e) => this.changeColor(e, '#d8dee9')}></span>
 						</div>
 					</div>
-					<div className="delete-container">X</div>
+					<div className="likes" onClick={(e) => this.voteHandler(e)}>{this.state.voteCount} ❤</div>
+					<div className="delete-container" onClick={(e) => this.deleteNote(e)}>X</div>
 				</div>
 			</Draggable>
 		)
