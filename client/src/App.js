@@ -21,7 +21,7 @@ export default class App extends React.Component {
 		if (e.button === 0) {
 			// don't create new sticky if clicking inside existing note
 			const element = e.target.className
-			if ( (element !== 'inputarea') && !(element.includes('sticky-note'))) {
+			if ( (element !== 'input-area') && (!element.includes('sticky-note')) && (!element.includes('color-picker-container')) && (!element.includes('color-option')) && (!element.includes('color-palette')) ) {
 				// create the sticky note
 				this.state.notes.push(<StickyNote posX={this.state.mouseX} posY={this.state.mouseY} />)
 			}
