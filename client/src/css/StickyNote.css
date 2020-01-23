@@ -43,7 +43,8 @@ textarea:focus {
 
 
 /* COLOR PICKER */
-.sticky-note:hover .color-picker-container {
+.sticky-note:hover .color-picker-container,
+.sticky-note:hover .delete-container {
 	display: initial;
 }
 
@@ -90,11 +91,6 @@ textarea:focus {
 	box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.8) inset;
 }
 
-.color-picker-container .color-palette .current {
-	border: 4px black solid;
-}
-
-
 /* Color Palette */
 .color-palette span:nth-child(1) {
 	background-color: #ff5555;
@@ -113,4 +109,22 @@ textarea:focus {
 }
 .color-palette span:nth-child(6) {
 	background-color: #d8dee9;
+}
+
+/* Delete */
+.delete-container {
+	display: none;
+	width: 2rem;
+	height: 2rem;
+	position: absolute;
+	right: -1rem;
+	top: -1rem;
+
+	font-weight: bold;
+	text-align: center;
+	cursor: pointer;
+	box-shadow: 1px 1px 8px rgb(165, 165, 165);
+	background-color: red;
+	border: 5px black solid;
+	border-radius: 50%;
 }
