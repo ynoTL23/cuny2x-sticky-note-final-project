@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom'
 import './css/Register.css'
 
 const submitHandler = () => {
+	// insert api call to register user
+
     console.log('registration test success');
     window.location.reload()
 }

@@ -6,6 +6,7 @@ import { Register } from './Register'
 import './css/Login.css'
 
 const submitHandler = () => {
+	// insert api call to login user
     console.log('login test success');
     window.location.reload()
 }
