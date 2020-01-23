@@ -8,8 +8,7 @@
 	position: absolute;
 	padding: 1em;
 	margin: 0 30px 30px 0;
-	background-color: #fffd75;
-	box-shadow: 5px 5px 10px -2px rgba(33, 33, 33, 0.3);
+	box-shadow: 5px 5px 10px -2px rgba(0, 0, 0, 0.3);
 	z-index: 1;
 }
 
@@ -40,4 +39,78 @@ textarea:focus {
 	outline: none;
 	border: none;
 	box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2) inset;
+}
+
+
+/* COLOR PICKER */
+.sticky-note:hover .color-picker-container {
+	display: initial;
+}
+
+.color-picker-container {
+	display: none;
+	width: 3rem;
+	height: 3rem;
+	position: absolute;
+	left: -2.5rem;
+	top: 0.5rem;
+
+	cursor: pointer;
+	box-shadow: 1px 1px 8px rgb(165, 165, 165);
+	border: 5px black solid;
+	border-radius: 50%;
+}
+
+.color-picker-container:hover .color-palette {
+	display: flex;
+}
+
+.color-picker-container .color-palette {
+	display: none;
+	padding: 5px;
+	position: absolute;
+	left: -9rem;
+	top: -5px;
+	width: 10rem;
+	height: fit-content;
+	flex-wrap: wrap;
+	justify-content: left center;
+
+	box-shadow: 1px 1px 4px rgb(165, 165, 165);
+	background-color: white;
+}
+
+.color-picker-container .color-palette span {
+	margin: 1px;
+	width: 3rem;
+	height: 3rem;
+}
+
+.color-picker-container .color-palette span:hover {
+	box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.8) inset;
+}
+
+.color-picker-container .color-palette .current {
+	border: 4px black solid;
+}
+
+
+/* Color Palette */
+.color-palette span:nth-child(1) {
+	background-color: #ff5555;
+}
+.color-palette span:nth-child(2) {
+	background-color: #bd93f9;
+}
+.color-palette span:nth-child(3) {
+	background-color: #f1fa8c;
+}
+.color-palette span:nth-child(4) {
+	background-color: #50fa7b;
+}
+.color-palette span:nth-child(5) {
+	background-color: #8be9fd;
+}
+.color-palette span:nth-child(6) {
+	background-color: #d8dee9;
 }
