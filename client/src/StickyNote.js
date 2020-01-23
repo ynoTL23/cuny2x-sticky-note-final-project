@@ -6,8 +6,12 @@ export default class StickyNote extends React.Component {
 
 	constructor(props) {
 		super(props)
+
 		this.state = {
-			bgColor: '#f1fa8c'
+			id: props.id,
+			author: 'Anonymous',
+			bgColor: props.bgColor,
+			content: props.content,
 		}
 	}
 
@@ -16,8 +20,6 @@ export default class StickyNote extends React.Component {
 		const colorPickerCircle = e.target.closest('.color-picker-container') // track the color picker circle
 		this.setState( {bgColor: color} ) // change the bg color of sticky note
 		colorPickerCircle.style.backgroundColor = color // change color picker circle indicator
-		document.querySelector('.color-palette .current').classList.remove('current') // remove current indicator in color palette
-		e.target.classList.add('current') // update color palette indicator
 	}
 
 	render() {
@@ -30,18 +32,20 @@ export default class StickyNote extends React.Component {
 					<div className='content'>
 						<textarea
 							className='input-area'
-							placeholder='Enter note description here'></textarea>
+							placeholder='Enter note description here'
+							defaultValue={this.state.content}></textarea>
 					</div>
 					<div className="color-picker-container" style={{backgroundColor: this.state.bgColor}}>
 						<div className="color-palette" >
 							<span className='color-option' onMouseDown={(e) => this.changeColor(e, '#ff5555')}></span>
 							<span className='color-option' onMouseDown={(e) => this.changeColor(e, '#bd93f9')}></span>
-							<span className='color-option current' onMouseDown={(e) => this.changeColor(e, '#f1fa8c')}></span>
+							<span className='color-option' onMouseDown={(e) => this.changeColor(e, '#f1fa8c')}></span>
 							<span className='color-option' onMouseDown={(e) => this.changeColor(e, '#50fa7b')}></span>
 							<span className='color-option' onMouseDown={(e) => this.changeColor(e, '#8be9fd')}></span>
 							<span className='color-option' onMouseDown={(e) => this.changeColor(e, '#d8dee9')}></span>
 						</div>
 					</div>
+					<div className="delete-container">X</div>
 				</div>
 			</Draggable>
 		)
