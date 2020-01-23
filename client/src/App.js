@@ -10,31 +10,41 @@ export default class App extends React.Component {
 		this.state = {
 			mouseX: 0,
 			mouseY: 0,
-			notes: [
-				<StickyNote
-					posX={Math.floor(Math.random() * 1000)}
-					posY={Math.floor(Math.random() * 500)}
-					content='test'
-					bgColor='#f1fa8c'
-				/>,
-				<StickyNote
-					posX={Math.floor(Math.random() * 1000)}
-					posY={Math.floor(Math.random() * 500)}
-					bgColor='#ff5555'
-				/>,
-				<StickyNote
-					posX={Math.floor(Math.random() * 1000)}
-					posY={Math.floor(Math.random() * 500)}
-					content='this is a test note'
-					bgColor='#8be9fd'
-				/>,
-				<StickyNote
-					posX={Math.floor(Math.random() * 1000)}
-					posY={Math.floor(Math.random() * 500)}
-					bgColor='#f1fa8c'
-				/>
-			]
+			notes: []
 		}
+	}
+
+	callAPI = async () => {
+		const res = await fetch('https://fast-stream-52898.herokuapp.com/notes/')
+		if(res.status === 200) {
+			const data = await res.json()
+			return data
+		} else {
+			throw new Error('Error, something went wrong')
+		}
+	}
+
+	componentDidMount() {
+		this.callAPI()
+			.then(data => {
+				data.forEach(record => {
+					// create the sticky note
+					const note =
+						<StickyNote
+							id={record['uuid']}
+							author={record['username']}
+							posX={Math.floor(Math.random() * 1500)}
+							posY={Math.floor(Math.random() * 900)}
+							bgColor='#f1fa8c'
+							content={record['posts']}
+							voteCount={Math.floor(Math.random() * 100)}
+						/>
+					this.state.notes.push(note)
+				})
+			})
+			.catch(err => {
+				console.log(err)
+		})
 	}
 
 	// track position of cursor
@@ -53,6 +63,7 @@ export default class App extends React.Component {
 				!element.includes('color-picker-container') &&
 				!element.includes('color-option') &&
 				!element.includes('color-palette') &&
+				!element.includes('likes') &&
 				!element.includes('delete-container')
 			) {
 				// create the sticky note
@@ -61,6 +72,7 @@ export default class App extends React.Component {
 						posX={this.state.mouseX}
 						posY={this.state.mouseY}
 						bgColor='#f1fa8c'
+						voteCount={0}
 					/>
 				)
 				this.state.notes.push(note)

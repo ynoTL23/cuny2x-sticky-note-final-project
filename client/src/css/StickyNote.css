@@ -93,7 +93,7 @@ textarea:focus {
 
 /* Color Palette */
 .color-palette span:nth-child(1) {
-	background-color: #ff5555;
+	background-color: #ffa0a0;
 }
 .color-palette span:nth-child(2) {
 	background-color: #bd93f9;
@@ -127,4 +127,17 @@ textarea:focus {
 	background-color: red;
 	border: 5px black solid;
 	border-radius: 50%;
+}
+
+/* Voting */
+.likes {
+	width: fit-content;
+	height: fit-content;
+	text-align: center;
+	cursor: pointer;
+	color: #000;
+}
+
+.likes:hover {
+	color: rgb(200, 200, 200);
 }
