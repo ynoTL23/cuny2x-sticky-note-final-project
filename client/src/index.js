@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Switch, Route, BrowserRouter as Router, Link } from 'react-router-dom'
+import { Switch, BrowserRouter as Router, Link } from 'react-router-dom'
 
 import App from './App'
 import { Register } from './Register'
