@@ -24,9 +24,7 @@ const savedNotes = db.define(
 );
 
 savedNotes.sync().then(function() {
-  http.createServer(app).listen(app.get("port"), function() {
-    console.log("The Notes Table Exists");
-  });
+  console.log("The Notes Table Exists");
 });
 
 module.exports = savedNotes;
