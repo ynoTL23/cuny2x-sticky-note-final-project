@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Switch, Route, BrowserRouter as Router, Link } from 'react-router-dom'
 
-import MouseTracker from './MouseTracker'
+import App from './App'
 import { Register } from './Register'
 import { Login } from './Login'
 // import PageNotFound from './PageNotFound'
@@ -22,11 +22,11 @@ const landing = (
 			</div>
 		</div>
 		<Switch>
-			
+
             {/* <Route component={PageNotFound}/> */}
-           
+
 		</Switch>
-		<MouseTracker />
+		<App />
 	</Router>
 )
 
