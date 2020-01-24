@@ -1,30 +1,107 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React, { Component } from "react";
+// import ReactDOM from "react-dom";
 
-import './css/Register.css'
+import "./css/Register.css";
 
-const submitHandler = () => {
-	// insert api call to register user
+export default class Register extends Component {
+  constructor() {
+    super();
+    this.state = {
+      username: "",
+      password: "",
+      email: "",
+      accessibleBy: "",
+      chosenColor: ""
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.submitHandler = this.submitHandler.bind(this);
+  }
 
-    console.log('registration test success');
-    window.location.reload()
-}
+  handleInputChange(e) {
+    const target = e.target;
+    const value = target.value;
+    const inputName = target.name;
 
-export const Register = () => {
-	const form = (
-        <div className='form'>
-            <h2>Sign Up</h2>
-			<label id='username-label'>Username</label>
-			<input type='text' id='username' required />
-			<br />
+    // console.log(e);
+    this.setState({
+      [inputName]: value
+    });
+  }
 
-			<label id='password-label'>Password</label>
-			<input type='password' id='password' required />
-			<br />
+  submitHandler() {
+    fetch("https://fast-stream-52898.herokuapp.com/user/register", {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(this.state)
+    });
+    window.location.push("http://localhost:3000/");
+    window.location.reload();
+  }
 
-			<div id='submit-btn' onClick={submitHandler}>Submit</div>
-		</div>
-    )
+  render() {
+    return (
+      <div className="form">
+        <h2>Sign Up</h2>
+        <label id="username-label">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          onChange={this.handleInputChange}
+          value={this.state.username}
+          required
+        />
+        <br />
 
-    ReactDOM.render(form, document.getElementById('root'))
+        <label id="password-label">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          onChange={this.handleInputChange}
+          value={this.state.password}
+          required
+        />
+        <br />
+
+        <label id="email-label">Email</label>
+        <input
+          type="text"
+          id="email"
+          name="email"
+          onChange={this.handleInputChange}
+          value={this.state.email}
+          required
+        />
+        <br />
+
+        <label id="accessible-label">Accessible By:</label>
+        <input
+          type="text"
+          id="accessible"
+          name="accessibleBy"
+          onChange={this.handleInputChange}
+          value={this.state.accessibleBy}
+        />
+        <br />
+
+        <label id="color-label">Chosen Color</label>
+        <input
+          type="text"
+          id="color"
+          name="chosenColor"
+          onChange={this.handleInputChange}
+          value={this.state.chosenColor}
+        />
+        <br />
+
+        <button id="submit-btn" onClick={this.submitHandler}>
+          Submit
+        </button>
+      </div>
+    );
+  }
 }

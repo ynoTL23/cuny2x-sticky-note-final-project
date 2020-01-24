@@ -1,33 +1,35 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 
-import { Register } from './Register'
+import Register from "./Register";
 
-import './css/Login.css'
+import "./css/Login.css";
 
 const submitHandler = () => {
-	// insert api call to login user
-    console.log('login test success');
-    window.location.reload()
-}
+  // insert api call to login user
+  console.log("login test success");
+  window.location.reload();
+};
 
 export const Login = () => {
-	const form = (
-		<div className='form'>
-			<h2>Login</h2>
-			<label id='username-label'>Username</label>
-			<input type='text' id='username' required />
-			<br />
+  const form = (
+    <div className="form">
+      <h2>Login</h2>
+      <label id="username-label">Username</label>
+      <input type="text" id="username" required />
+      <br />
 
-			<label id='password-label'>Password</label>
-			<input type='password' id='password' required />
-			<br />
+      <label id="password-label">Password</label>
+      <input type="password" id="password" required />
+      <br />
 
-			<div id='submit-btn' onClick={submitHandler}>Log in</div>
+      <div id="submit-btn" onClick={submitHandler}>
+        Log in
+      </div>
 
-			<p onClick={Register}>New here? Create an account</p>
-		</div>
-	)
+      <p onClick={Register}>New here? Create an account</p>
+    </div>
+  );
 
-    ReactDOM.render(form, document.getElementById('root'))
-}
+  ReactDOM.render(form, document.getElementById("root"));
+};
