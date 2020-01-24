@@ -19,12 +19,18 @@
   },
   "homepage": "https://github.com/ynoTL23/cuny2x-sticky-note-final-project#readme",
   "dependencies": {
+    "bcrypt": "^3.0.7",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "express-validator": "^6.3.1",
     "pg": "^7.17.1",
     "pg-hstore": "^2.3.3",
     "react-router-dom": "^5.1.2",
     "sequelize": "^5.21.3"
+  },
+  "engines": {
+    "node": "12.6.x",
+    "npm": "6.13.x"
   }
 }
